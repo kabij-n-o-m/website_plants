@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export interface Plant {
-  id: number;
+  id: string;
   common_name: string;
   scientific_name: string;
   image_url: string;
