@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export interface Plant {
   id: string;
+  slug: string;
   common_name: string;
   scientific_name: string;
   image_url: string;

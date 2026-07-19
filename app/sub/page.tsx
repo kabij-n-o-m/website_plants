@@ -19,7 +19,7 @@ const SubPage = async() => {
       <h1>Types of tomatoes</h1>
       <div className='cardGridContainer'>
       
-        {plants.map(plant=> <Link href={"../plant-details/"+plant.id} key= {plant.id}><PlantCard plant = {plant}/></Link>)}
+        {plants.map(plant=> <Link href={"../plant-details/"+plant.slug} key= {plant.slug}><PlantCard plant = {plant}/></Link>)}
   
       </div>  
     </div>
