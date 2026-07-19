@@ -5,7 +5,7 @@ export interface Plant {
   id: number;
   common_name: string;
   scientific_name: string;
-  edible_part: string[];
+  image_url: string;
 }
 
 export default function Home() {

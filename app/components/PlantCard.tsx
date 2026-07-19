@@ -1,15 +1,20 @@
 import React from 'react'
 import {Plant} from '../page'
+import "./Card.css"
 
+interface PlantProp {
+  plant: Plant
+}
 
-const PlantCard = (props: Plant) => {
+const PlantCard = (props: PlantProp) => {
+  const plant = props.plant;
   return (
-    <div>
-      <p>
-        Name: {props.common_name}
-        Scientific name: {props.scientific_name}
-        Edible parts: {props.edible_part}
-      </p>
+    <div className='card'>
+      <div className = 'cardtext'>
+        Name: {plant.common_name} <br/>
+        Scientific name: {plant.scientific_name}
+      </div>
+      <img src={plant.image_url} className="cardimg" alt={"image of "+plant.common_name} />
     </div>
   )
 }
