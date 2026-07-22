@@ -1,16 +1,21 @@
 .contentandnav{
 display: flex;
 flex-direction: row;
+padding: 10px;
+gap: 10px;
 
 }
 
 .navbar {
-    background-color: brown;
+    background-color: rgb(236, 109, 109);
     flex: 1;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .content{
-    background-color: purple;
-    flex: 3;
+    background-color: rgb(224, 132, 224);
+    flex: 4;
+    padding:10px;
 }
 

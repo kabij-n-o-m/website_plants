@@ -1,12 +1,11 @@
 .cardGridContainer{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     grid-gap: 1rem;
     background-color: lightgreen;
-    padding: 2rem;
 }
 
 .cardGridContainer div{
-    padding: 0.5rem;
+    padding: 5px;
     
 }

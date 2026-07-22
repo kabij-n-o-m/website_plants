@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./components/almostGlobal.css"
+import Navbar from "./components/Navbar"
 
 export interface Plant {
   id: string;
@@ -12,13 +13,15 @@ export interface Plant {
 export default function Home() {
   return (
     <main> <h1>the plant info site</h1>
-    <Link href="/sub">example search page: tomatoes</Link>
     <div className="contentandnav">    
-      <div className="content"> main content of the page </div> 
-      <div className="navbar">navigation placeholder<br/> abc</div>
+      <div className="content"> Welcome to my website! I'll think of more stuff to write here later<br/>
+        The general vibe is that you can find out useful information about plants for growing them. <br/>
+        More features will be added soon tm.
+      
+      </div> 
+      <Navbar />
       
     </div>
-    <h2> hlo?</h2>
     </main>
   );
 }

@@ -11,14 +11,16 @@
 
 .cardtext {
     flex: 1;
+    font-size: smaller;
 }
 
 .cardimg{
     display: flex;
-    height: 9rem;
-    width: 8rem;
+    max-height: 9rem;
+    max-width: 8rem;
     overflow: hidden;
     justify-content: end;
+    padding: 0px;
 }
 
 .image{
@@ -27,4 +29,4 @@
     object-fit: contain;
 }
 
-/* height being hardcoded isnt ideal */
+/* somehow change this so the image ends up 9x8 rem and crops along the dimension thats too big*/
