@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import "./components/almostGlobal.css"
 
 export interface Plant {
   id: string;
@@ -11,9 +11,14 @@ export interface Plant {
 
 export default function Home() {
   return (
-    <main> <h1>Home page yay</h1>
-    //<Link href="/sub">subpage</Link>
-    <h1> hlo?</h1>
+    <main> <h1>the plant info site</h1>
+    <Link href="/sub">example search page: tomatoes</Link>
+    <div className="contentandnav">    
+      <div className="content"> main content of the page </div> 
+      <div className="navbar">navigation placeholder<br/> abc</div>
+      
+    </div>
+    <h2> hlo?</h2>
     </main>
   );
 }

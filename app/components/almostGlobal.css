@@ -1,0 +1,16 @@
+.contentandnav{
+display: flex;
+flex-direction: row;
+
+}
+
+.navbar {
+    background-color: brown;
+    flex: 1;
+}
+
+.content{
+    background-color: purple;
+    flex: 3;
+}
+
