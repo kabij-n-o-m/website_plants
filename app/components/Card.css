@@ -10,15 +10,21 @@
 }
 
 .cardtext {
-    flex: 2;
+    flex: 1;
 }
 
 .cardimg{
-    flex: 1;
-    height: 100px;
+    display: flex;
+    height: 9rem;
+    width: 8rem;
+    overflow: hidden;
+    justify-content: end;
+}
+
+.image{
+    height: 9rem;
     width: auto;
-    flex-shrink: 1;
-    min-width: 0;
+    object-fit: contain;
 }
 
 /* height being hardcoded isnt ideal */

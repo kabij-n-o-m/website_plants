@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import {Plant} from '../page'
 import "./Card.css"
 
@@ -14,8 +15,9 @@ const PlantCard = (props: PlantProp) => {
         Name: {plant.common_name} <br/>
         Scientific name: {plant.scientific_name}
       </div>
-      <img src={plant.image_url} className="cardimg" alt={"image of "+plant.common_name} />
-    </div>
+      <div className="cardimg">
+      <Image className="image" src={plant.image_url} alt={"image of "+plant.common_name} height={200} width={200}/>
+    </div></div>
   )
 }
 
