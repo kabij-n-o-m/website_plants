@@ -23,6 +23,7 @@ interface MorePlant{
   slug: string; 
   common_name: string;
   scientific_name: string;
+  image_url: string;
   edible: boolean;
   growth: {light: number;};
   distribution: {native: string[]; introduced: string[];}
@@ -36,8 +37,7 @@ export default async function PlantInfoPage({ params }: PageProps) {
   const res = await fetch ("https://trefle.io/api/v1/species/"+slug+"?"+api_key);
   const { data } = await res.json();
   const plant: MorePlant = data;
-  const flowerurl = plant.images.flower[0].image_url
-  const floweralt = plant.common_name + ' '+plant.images.flower[0].copyright
+
 
   return (
       <main><h1>{plant.common_name ? plant.common_name : plant.slug}</h1>
@@ -49,11 +49,13 @@ export default async function PlantInfoPage({ params }: PageProps) {
             <ul>
               <li>{plant.common_name ? "Common name: " + plant.common_name : "" }</li>
               <li>Scientific name: {plant.scientific_name} </li>
-              <li>Edible? {plant.edible ? "Yes" : "No"}</li>
-              <li>Native to: {plant.distribution.native.map(region => region).join(',')}
+
+              {plant.edible != null && <li>Edible? {plant.edible ? "Yes" : "No"}</li>}
+
+              <li>Native to: {plant.distribution.native.map(region => region).join(', ')}
               </li>
             </ul>
-            <Image src= {flowerurl} alt= {floweralt} height={200} width={200} />
+            <Image src= {plant.image_url} alt = {"image of " + plant.slug} height={200} width={200} />
           </div>
             <h2>Growth information</h2>
             <div className='contentsection'>            
@@ -67,3 +69,5 @@ export default async function PlantInfoPage({ params }: PageProps) {
       </main>
   )
 }
+
+/*come back to teh stuff about displaying different images of the plant*/

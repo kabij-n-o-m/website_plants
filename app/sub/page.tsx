@@ -11,7 +11,7 @@ const api_hasname = "filter_not[common_name]=null"
 
 
 const SubPage = async() => {
-  const res = await fetch('https://trefle.io/api/v1/plants/search?'+api_key+'&q=tomato&'+api_hasname+'&limit=12');
+  const res = await fetch('https://trefle.io/api/v1/plants/search?'+api_key+'&q=tomato&limit=12');
   const { data } = await res.json();
   const plants: Plant[] = data;
   //console.log(data);

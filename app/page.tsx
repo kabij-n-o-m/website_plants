@@ -10,6 +10,8 @@ export interface Plant {
   image_url: string;
 }
 
+export const imageHosts = ['bs.plantnet.org', 'd2seqvvyy3b8p2.cloudfront.net'];
+
 export default function Home() {
   return (
     <main> <h1>the plant info site</h1>
