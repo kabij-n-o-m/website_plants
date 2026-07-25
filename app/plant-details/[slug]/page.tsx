@@ -3,6 +3,7 @@
 import Navbar from '@/app/components/Navbar';
 import Image from 'next/image';
 import './DetailsLayout.css'
+import SafeImage from '@/app/components/safeImage';
 
 const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
 
@@ -55,7 +56,9 @@ export default async function PlantInfoPage({ params }: PageProps) {
               <li>Native to: {plant.distribution.native.map(region => region).join(', ')}
               </li>
             </ul>
-            <Image src= {plant.image_url} alt = {"image of " + plant.slug} height={200} width={200} />
+            <div className='bigImage'>
+            <SafeImage className="imageclass" src= {plant.image_url} alt = {"image of " + plant.slug} height={50} width={50} />
+            </div>
           </div>
             <h2>Growth information</h2>
             <div className='contentsection'>            

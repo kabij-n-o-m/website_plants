@@ -1,11 +1,17 @@
 .contentsection{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto auto;
     padding: 1rem;
 }
 
-Image {
-    height: auto;
-    width: auto;
+.bigImage{
+    justify-self: center;
+    height: 150px;
+    width: 150px;
+}
+
+.imageclass{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }

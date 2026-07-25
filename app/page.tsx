@@ -10,7 +10,7 @@ export interface Plant {
   image_url: string;
 }
 
-export const imageHosts = ['bs.plantnet.org', 'd2seqvvyy3b8p2.cloudfront.net'];
+export const allowedImages = [new URL('https://bs.plantnet.org/image/**'), new URL('https://d2seqvvyy3b8p2.cloudfront.net/**')];
 
 export default function Home() {
   return (
