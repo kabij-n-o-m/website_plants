@@ -8,7 +8,7 @@ const Navbar = () => {
         <ul>
         <li><Link href={"/"}> home page</Link></li>
         <li><Link href={"/sub"}><b>temp example link that works</b></Link></li>
-        <li>page 3</li>
+        <li><Link href={"/search"}> search </Link></li>
         <li>page 4</li>
         </ul>
       </div>

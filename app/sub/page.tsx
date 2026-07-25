@@ -1,7 +1,7 @@
 import React from 'react';
 import {Plant} from '../page';
 import PlantCard from '../components/PlantCard';
-import "./CardLayout.css";
+import "../search/CardLayout.css";
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 

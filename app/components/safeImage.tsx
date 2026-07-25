@@ -3,42 +3,37 @@ import { allowedImages } from '../page';
 import Image, {type ImageProps} from 'next/image';
 
 
-function safeImageCheck (props: string) : boolean  {
-    let url: URL;
-    try{
-        url = new URL(props);
-    } catch {return false;}
+function safeImageCheck(props: string): boolean {
+  if (props == "" || props == null || props == undefined){ return false}
+  let url: URL;
 
-  return allowedImages.some(pattern => {
-
+  try {
+    url = new URL(props);
+  } catch {
+    return false;
+  }
+  return allowedImages.some((pattern) => {
+    
     if (
       pattern.protocol &&
-      url.protocol.replace(":", "") !== pattern.protocol
-    ) {
+      url.protocol !== pattern.protocol
+    ) {      
       return false;
     }
-
-    // hostname
     if (url.hostname !== pattern.hostname) {
       return false;
     }
-
-    // pathname
-    if (pattern.pathname) {
-      if (pattern.pathname === "/**") {
-        
-        return true;
-      }
-
-      const prefix = pattern.pathname.replace("/**", "");
-
-      return url.pathname.startsWith(prefix);
+    if (!pattern.pathname) {
+      return true;
     }
-
-  }
-   
-  )
+    if (pattern.pathname === "/**") {
+      return true;
+    }
+    const prefix = pattern.pathname.replace("/**", "");
+    return url.pathname.startsWith(prefix);
+  });
 }
+
 
 interface imageProp {
     src: string;
@@ -51,14 +46,17 @@ interface imageProp {
 
 const SafeImage = (props: ImageProps) => {
     if (typeof props.src == "string"){
-        if (!safeImageCheck(props.src)){
+
+        if (!safeImageCheck(props.src)&&props.src!=""){
+            console.log("using img")
             return (
                 <img src={props.src} alt={props.alt} width={props.width} height={props.height} className={props.className}/>
             )
             
         }
+        return(<Image {...props}  />)
+
     }
-    return(<Image {...props}  />)
 }
 
 export default SafeImage

@@ -1,0 +1,59 @@
+import React from 'react';
+import {Plant} from '../page';
+import PlantCard from '../components/PlantCard';
+import "./CardLayout.css";
+import Link from 'next/link';
+import Navbar from '../components/Navbar';
+import SearchBar from '../components/SearchBar';
+
+const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
+const api_hasname = "filter_not[common_name]=null"
+const api_base = "https://trefle.io/api/v1/species/search?"
+
+type SearchParams = Promise<{
+  q?: string;
+}>;
+
+async function makeUrl (searchParams: SearchParams) : Promise<string> {
+  const params = await searchParams;
+  const output = api_base+api_key+(params.q?"&q="+params.q :"")+"&limit=12"
+  return (output); 
+}
+
+function PlantsExist (plants: {plants:Plant[]}){
+  if (plants){
+    const plantList = plants.plants
+  if (plantList){
+  if (plantList.length >0) {return(
+  <div className='cardGridContainer'>      
+  {plantList.map(plant=> <Link href={"../plant-details/"+plant.slug} key= {plant.slug}><PlantCard plant = {plant}/></Link>)}
+  </div>)
+  } 
+  }}else {
+    return;}
+}
+
+async function SearchPage ({searchParams}:{searchParams:SearchParams;}) {
+  
+  const queryUrl = await makeUrl(searchParams);
+  const res = await fetch(queryUrl);
+  const { data } = await res.json();
+  const plants: Plant[] = data;
+  console.log(queryUrl);
+
+  return (
+    <main><h1>Search plants</h1>
+    <div className='contentandnav'>
+      <div className='content'>
+        <SearchBar /> 
+        <PlantsExist plants = {plants}/>
+      </div>
+      <Navbar/> 
+    </div>
+    </main>
+  )
+}
+
+export default SearchPage
+     
+
