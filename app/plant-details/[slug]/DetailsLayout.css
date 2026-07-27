@@ -1,17 +1,26 @@
 .contentsection{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 3fr 1fr;
     padding: 1rem;
 }
 
-.bigImage{
+.imageWrapper{
     justify-self: center;
-    height: 150px;
-    width: 150px;
+    height: auto;
+    max-height: 15rem;
+    width: 100%;
+    justify-content: center;
 }
 
 .imageclass{
     height: 100%;
     width: 100%;
     object-fit: contain;
+    border-color: lightgreen;
+    border-width: 5px;
+    border-radius: 20px;
+    background-color: #d3f8d3;
+
 }
+
+

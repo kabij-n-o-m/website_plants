@@ -56,8 +56,8 @@ export default async function PlantInfoPage({ params }: PageProps) {
               <li>Native to: {plant.distribution.native.map(region => region).join(', ')}
               </li>
             </ul>
-            <div className='bigImage'>
-            <SafeImage className="imageclass" src= {plant.image_url} alt = {"image of " + plant.slug} height={50} width={50} />
+            <div className='imageWrapper'>
+            <SafeImage className="imageclass" src= {plant.image_url} alt = {"image of " + plant.slug} height={100} width={100} />
             </div>
           </div>
             <h2>Growth information</h2>

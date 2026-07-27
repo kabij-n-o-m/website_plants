@@ -18,6 +18,7 @@ export default function Home() {
     <div className="contentandnav">    
       <div className="content"> Welcome to my website! I'll think of more stuff to write here later<br/>
         The general vibe is that you can find out useful information about plants for growing them. <br/>
+        All plant info and photos are from trefle.io <br/>
         More features will be added soon tm.
       
       </div> 
