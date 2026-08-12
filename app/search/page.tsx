@@ -34,13 +34,15 @@ function PlantsExist (plants: {plants:Plant[]}){
 }
 
 async function SearchPage ({searchParams}:{searchParams:SearchParams;}) {
-  
+  let plants:Plant[]=[];
+
+  if ((await searchParams).q){
   const queryUrl = await makeUrl(searchParams);
   const res = await fetch(queryUrl);
   const { data } = await res.json();
-  const plants: Plant[] = data;
-  console.log(queryUrl);
-
+  plants = data;
+  console.log(queryUrl);}
+  
   return (
     <main><h1>Search plants</h1>
     <div className='contentandnav'>

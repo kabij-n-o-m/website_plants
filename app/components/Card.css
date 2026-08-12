@@ -10,11 +10,12 @@
 }
 
 .cardtext {
-    flex: 1;
+    flex: 3;
     font-size: smaller;
 }
 
 .cardimg{
+    flex:2;
     display: flex;
     max-height: 9rem;
     max-width: 8rem;

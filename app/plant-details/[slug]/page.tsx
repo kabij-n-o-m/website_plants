@@ -26,7 +26,16 @@ interface MorePlant{
   scientific_name: string;
   image_url: string;
   edible: boolean;
-  growth: {light: number;};
+  growth: {
+    days_to_harvest:number; 
+    ph_maximum:number; 
+    ph_minimum:number; 
+    light: number;
+    atmospheric_humidity: number;
+    minimum_temperature: {deg_c:number;};
+    maximum_temperature: {deg_c:number;};
+
+  };
   distribution: {native: string[]; introduced: string[];}
   images: {flower: PlantImage[] ; fruit: PlantImage[] ; other: PlantImage[] ;}
 
@@ -63,7 +72,17 @@ export default async function PlantInfoPage({ params }: PageProps) {
             <h2>Growth information</h2>
             <div className='contentsection'>            
             <ul>
-              <li>Light level needed for growth: {plant.growth.light}</li>            
+              {plant.growth.days_to_harvest!=null && <li>Number of days from planting until harvest: {plant.growth.days_to_harvest}</li> }
+              {plant.growth.light!=null && <li>Ideal light level: {plant.growth.light}</li> }
+              {plant.growth.ph_maximum!=null && <li>Maximum ph: {plant.growth.ph_maximum}</li> }
+              {plant.growth.ph_minimum!=null && <li>Minimum ph: {plant.growth.ph_minimum}</li> }
+              {plant.growth.atmospheric_humidity!=null && <li>Ideal humidity level: {plant.growth.atmospheric_humidity}</li> }
+              {plant.growth.maximum_temperature.deg_c!=null && <li>Maximum temperature: {plant.growth.maximum_temperature.deg_c}°C</li> }
+              {plant.growth.minimum_temperature.deg_c!=null && <li>Minimum temperature: {plant.growth.minimum_temperature.deg_c}°C</li> }
+            
+            
+            
+            
             </ul>
           </div>
         </div>

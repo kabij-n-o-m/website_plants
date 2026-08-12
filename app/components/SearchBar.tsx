@@ -3,12 +3,14 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import {useState} from 'react';
 
 export default function SearchBar() {
+    
     const router = useRouter();
     const searchParams = useSearchParams();
 
     const [query, setQuery] = useState(searchParams.get("q")?? "");
 
-    function handleSearch(){
+    function handleSearch(e){
+        e.preventDefault();
         const params = new URLSearchParams(searchParams);
 
         if (query) {params.set("q", query);} 
@@ -20,7 +22,7 @@ export default function SearchBar() {
 
 
     return (
-        <div className="flex gap-0">
+        <form onSubmit={handleSearch} className="flex gap-0">
             <input
             placeholder="Enter plant name"
             className="flex-1 rounded-l-lg bg-amber-100 border-amber-900 border-3 px-4 py-3 focus:outline-none "
@@ -29,11 +31,11 @@ export default function SearchBar() {
             />
 
             <button
-            onClick={handleSearch}
+            type="submit"
             className="rounded-r-lg bg-green-600 px-6 py-3 font-medium text-white hover:bg-green-800"
             >
             Search
             </button>
-        </div>
+        </form>
     );
     }

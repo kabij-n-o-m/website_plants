@@ -1,6 +1,6 @@
 .cardGridContainer{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
     background-color: lightgreen;
 }

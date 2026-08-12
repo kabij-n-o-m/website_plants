@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     padding: 1rem;
+    gap: 1rem;
 }
 
 .imageWrapper{
