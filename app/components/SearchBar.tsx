@@ -22,7 +22,7 @@ export default function SearchBar() {
 
 
     return (
-        <form onSubmit={handleSearch} className="flex gap-0">
+        <form onSubmit={handleSearch} className="flex gap-0 mb-2">
             <input
             placeholder="Enter plant name"
             className="flex-1 rounded-l-lg bg-amber-100 border-amber-900 border-3 px-4 py-3 focus:outline-none "

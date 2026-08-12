@@ -48,6 +48,16 @@ export default async function PlantInfoPage({ params }: PageProps) {
   const { data } = await res.json();
   const plant: MorePlant = data;
 
+  const growthFields = [
+    { label: 'Number of days from planting until harvest', value: plant.growth.days_to_harvest },
+    { label: 'Ideal light level', value: plant.growth.light },
+    { label: 'Maximum ph', value: plant.growth.ph_maximum },
+    { label: 'Minimum ph', value: plant.growth.ph_minimum },
+    { label: 'Ideal humidity level', value: plant.growth.atmospheric_humidity },
+    { label: 'Maximum temperature', value: plant.growth.maximum_temperature?.deg_c, unit: '°C' },
+    { label: 'Minimum temperature', value: plant.growth.minimum_temperature?.deg_c, unit: '°C' },
+  ].filter(f => f.value != null);
+
 
   return (
       <main><h1>{plant.common_name ? plant.common_name : plant.slug}</h1>
@@ -62,32 +72,40 @@ export default async function PlantInfoPage({ params }: PageProps) {
 
               {plant.edible != null && <li>Edible? {plant.edible ? "Yes" : "No"}</li>}
 
-              <li>Native to: {plant.distribution.native.map(region => region).join(', ')}
+              <li>Native to: {
+                plant.distribution.native.length <= 8
+                  ? plant.distribution.native.join(', ')
+                  : (
+                    <>
+                      {plant.distribution.native.slice(0, 8).join(', ')}
+                      <details className="inline">
+                        <summary className="inline cursor-pointer text-green-700 underline hover:text-green-900 list-none">
+                          {' '}see more...
+                        </summary>
+                        <span>{', ' + plant.distribution.native.slice(8).join(', ')}</span>
+                      </details>
+                    </>
+                  )}
               </li>
             </ul>
             <div className='imageWrapper'>
             <SafeImage className="imageclass" src= {plant.image_url} alt = {"image of " + plant.slug} height={100} width={100} />
             </div>
-          </div>
-            <h2>Growth information</h2>
-            <div className='contentsection'>            
+            </div>
+          {growthFields.length > 0 && (<>
+          <h2>Growth information</h2>
+          <div className='contentsection'>
             <ul>
-              {plant.growth.days_to_harvest!=null && <li>Number of days from planting until harvest: {plant.growth.days_to_harvest}</li> }
-              {plant.growth.light!=null && <li>Ideal light level: {plant.growth.light}</li> }
-              {plant.growth.ph_maximum!=null && <li>Maximum ph: {plant.growth.ph_maximum}</li> }
-              {plant.growth.ph_minimum!=null && <li>Minimum ph: {plant.growth.ph_minimum}</li> }
-              {plant.growth.atmospheric_humidity!=null && <li>Ideal humidity level: {plant.growth.atmospheric_humidity}</li> }
-              {plant.growth.maximum_temperature.deg_c!=null && <li>Maximum temperature: {plant.growth.maximum_temperature.deg_c}°C</li> }
-              {plant.growth.minimum_temperature.deg_c!=null && <li>Minimum temperature: {plant.growth.minimum_temperature.deg_c}°C</li> }
-            
-            
-            
-            
+              {growthFields.map(f => (
+                <li key={f.label}>{f.label}: {f.value}{f.unit ?? ''}</li>
+              ))}
             </ul>
+          </div></>
+          )}
           </div>
-        </div>
         <Navbar />
-      </div>
+        </div>
+        
       </main>
   )
 }

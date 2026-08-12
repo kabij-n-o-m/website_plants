@@ -16,6 +16,7 @@ gap: 10px;
 .content{
     background-color: rgb(224, 132, 224);
     flex: 4;
+    gap: 10px;
     padding:10px;
 }
 

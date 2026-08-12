@@ -5,6 +5,7 @@ import "./CardLayout.css";
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
+import "../components/almostGlobal.css"
 
 const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
 const api_hasname = "filter_not[common_name]=null"
