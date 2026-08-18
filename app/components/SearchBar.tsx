@@ -21,8 +21,8 @@ export default function SearchBar() {
 
     const [edible, setEdible] = useState("");
     const [nativeTo, setNativeTo] = useState("");
-    const [lightLv, setLightLv] = useState([1, 10]);
-    const [phLv, setphLv] = useState([0,14]);
+    const [lightLv, setLightLv] = useState([Number(searchParams.get("minLight"))|1, Number(searchParams.get("maxLight"))|10]);
+    const [phLv, setphLv] = useState([Number(searchParams.get("minPh"))|0,Number(searchParams.get("maxPh"))|14]);
 
 
     function handleSearch(e){
@@ -146,7 +146,7 @@ export default function SearchBar() {
                 <fieldset className = "flex text-base gap-1 m-1 mt-2">
                     Ideal ph level: 
                     <Slider.Root className="relative flex items-center w-48 h-6 ml-2"
-                    min={1} max={14} step={1} minStepsBetweenThumbs={0} value={phLv} onValueChange={setphLv}
+                    min={0} max={14} step={1} minStepsBetweenThumbs={0} value={phLv} onValueChange={setphLv}
                     aria-label="Ideal ph level range"> 
                         <Slider.Track className="relative h-1 flex-1 rounded bg-gray-300">
                         <Slider.Range className="absolute h-full rounded bg-blue-500" />

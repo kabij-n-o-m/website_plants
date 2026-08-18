@@ -26,7 +26,9 @@ type SearchParams = Promise<{
 async function makeUrl (searchParams: SearchParams) : Promise<string> {
   const params = await searchParams;
   const output = api_base+api_key+(params.q?"&q="+params.q :"")+(params.edible?"&filter[edible]="+params.edible:"")+
-  (params.native?"&filter[native]="+params.native:"")+"&limit=12"
+  (params.minLight?"&range[light]="+params.minLight+","+params.maxLight :"")+
+  (params.minPh?"&range[ph_maximum]="+params.minPh :"")+
+  (params.maxPh?"&range[ph_minimum]=,"+params.maxPh:"")+"&limit=12"
   return (output); 
 }
 
