@@ -20,3 +20,10 @@ gap: 10px;
     padding:10px;
 }
 
+.searchGrid{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 0px;
+    row-gap: 10px;
+    padding:10px;
+}

@@ -11,13 +11,22 @@ const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
 const api_hasname = "filter_not[common_name]=null"
 const api_base = "https://trefle.io/api/v1/species/search?"
 
+
+
 type SearchParams = Promise<{
   q?: string;
+  edible?: string;
+  native?: string;
+  minLight?: string;
+  maxLight?: string;
+  minPh?: string;
+  maxPh?: string;
 }>;
 
 async function makeUrl (searchParams: SearchParams) : Promise<string> {
   const params = await searchParams;
-  const output = api_base+api_key+(params.q?"&q="+params.q :"")+"&limit=12"
+  const output = api_base+api_key+(params.q?"&q="+params.q :"")+(params.edible?"&filter[edible]="+params.edible:"")+
+  (params.native?"&filter[native]="+params.native:"")+"&limit=12"
   return (output); 
 }
 
@@ -37,7 +46,7 @@ function PlantsExist (plants: {plants:Plant[]}){
 async function SearchPage ({searchParams}:{searchParams:SearchParams;}) {
   let plants:Plant[]=[];
 
-  if ((await searchParams).q){
+  if (await searchParams){
   const queryUrl = await makeUrl(searchParams);
   const res = await fetch(queryUrl);
   const { data } = await res.json();
