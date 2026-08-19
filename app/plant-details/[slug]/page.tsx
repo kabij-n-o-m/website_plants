@@ -5,7 +5,7 @@ import Image from 'next/image';
 import './DetailsLayout.css'
 import SafeImage from '@/app/components/safeImage';
 
-const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
+const api_key = process.env.TREFLE_API_KEY;
 
 interface PageProps {
   params: Promise<{
@@ -72,7 +72,9 @@ export default async function PlantInfoPage({ params }: PageProps) {
 
               {plant.edible != null && <li>Edible? {plant.edible ? "Yes" : "No"}</li>}
 
+              {plant.distribution.native?
               <li>Native to: {
+                 
                 plant.distribution.native.length <= 8
                   ? plant.distribution.native.join(', ')
                   : (
@@ -86,7 +88,7 @@ export default async function PlantInfoPage({ params }: PageProps) {
                       </details>
                     </>
                   )}
-              </li>
+              </li>: <></>} 
             </ul>
             <div className='imageWrapper'>
             <SafeImage className="imageclass" src= {plant.image_url} alt = {"image of " + plant.slug} height={100} width={100} />

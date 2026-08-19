@@ -5,7 +5,7 @@ import "../search/CardLayout.css";
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 
-const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
+const api_key = process.env.TREFLE_API_KEY;
 const api_hasname = "filter_not[common_name]=null"
 
 

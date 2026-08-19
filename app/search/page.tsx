@@ -7,8 +7,7 @@ import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
 import "../components/almostGlobal.css"
 
-const api_key = "token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE";
-const api_hasname = "filter_not[common_name]=null"
+const api_key = process.env.TREFLE_API_KEY;
 const api_base = "https://trefle.io/api/v1/species/search?"
 
 
