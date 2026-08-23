@@ -25,7 +25,7 @@ export default function SearchBar() {
     const [phLv, setphLv] = useState([Number(searchParams.get("minPh"))|0,Number(searchParams.get("maxPh"))|14]);
 
 
-    function handleSearch(e){
+    function handleSearch(e: React.ChangeEvent){
         e.preventDefault();
         const params = new URLSearchParams(searchParams);
 
