@@ -52,7 +52,6 @@ async function SearchPage ({searchParams}:{searchParams:SearchParams;}) {
   const res = await fetch(queryUrl);
   const { data } = await res.json();
   plants = data;
-  console.log(queryUrl);}
   
   return (
     <main><h1>Search plants</h1>
@@ -64,9 +63,7 @@ async function SearchPage ({searchParams}:{searchParams:SearchParams;}) {
       <Navbar/> 
     </div>
     </main>
-  )
+  )}
 }
 
 export default SearchPage
-     
-

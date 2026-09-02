@@ -31,12 +31,3 @@ const SubPage = async() => {
 }
 
 export default SubPage
-
-        //{plants.map(plant => <li key={plant.id}>{plant.common_name}</li>)}
-
-//usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE
-
-//https://trefle.io/api/v1/plants?token=usr-dEYjk4v-jeB2YGfG2lPBfgwrGuBNpOBdLKkJbhg2sAE
-
-//       
-
