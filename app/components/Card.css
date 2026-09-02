@@ -1,0 +1,34 @@
+.card {
+  background-color: white;
+  border-radius: 10px;
+  height:100%;
+  border-color: var(--color-cgreen-500);
+  border-width: 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.cardtext {
+    flex: 3;
+    font-size: smaller;
+}
+
+.cardimg{
+    flex:2;
+    display: flex;
+    max-height: 9rem;
+    max-width: 8rem;
+    overflow: hidden;
+    justify-content: end;
+    padding: 0px;
+}
+
+.image{
+    height: 9rem;
+    width: auto;
+    object-fit: contain;
+}
+
+/* somehow change this so the image ends up 9x8 rem and crops along the dimension thats too big*/

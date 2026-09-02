@@ -1,0 +1,44 @@
+.contentandnav{
+display: flex;
+flex-direction: row;
+padding: 10px;
+gap: 10px;
+
+}
+
+.navbar {
+    background-color: var(--color-cpink-150);
+    flex: 1;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.content{
+    background-color: var(--color-cpink-150) ;
+    flex: 4;
+    gap: 10px;
+    border-radius: 20px;
+    padding:10px;
+}
+
+.searchGrid{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 0px;
+    row-gap: 10px;
+    padding:10px;
+}
+
+.submitButton{
+    border-radius: var(--radius-lg);
+    background-color: var(--color-cgreen-500);
+    color: white;
+    padding-inline: calc(var(--spacing) * 6);
+    padding-block: calc(var(--spacing) * 3);
+    margin-inline-end: 10px;
+
+}
+
+.submitButton:hover{
+    background-color: var(--color-cgreen-600);
+}
