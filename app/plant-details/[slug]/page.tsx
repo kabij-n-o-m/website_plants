@@ -81,7 +81,7 @@ export default async function PlantInfoPage({ params }: PageProps) {
                     <>
                       {plant.distribution.native.slice(0, 8).join(', ')}
                       <details className="inline">
-                        <summary className="inline cursor-pointer text-green-700 underline hover:text-green-900 list-none">
+                        <summary className="inline cursor-pointer text-cgreen-900 underline hover:text-cgreen-600 list-none">
                           {' '}see more...
                         </summary>
                         <span>{', ' + plant.distribution.native.slice(8).join(', ')}</span>

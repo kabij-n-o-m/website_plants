@@ -14,11 +14,28 @@ export default function LoginPage(){
     const supabase = createClient();
 
     async function handleLogin(e: React.SubmitEvent){
-        e.preventDefault;
+        e.preventDefault();
         setLoading(true);
         setError(null);
 
-        const {data, error} = await supabase.auth.signInWithPassword({
+        const {error} = await supabase.auth.signInWithPassword({
+            email, password,
+        });
+
+        if (error){
+            setError(error.message);
+            setLoading(false);
+            return;
+        }
+        window.location.href = "/"; // redirects to homepage for now
+    }
+
+    async function handleSignup(e: React.MouseEvent<HTMLButtonElement>){
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+
+        const {error} = await supabase.auth.signUp({
             email, password,
         });
 
@@ -58,8 +75,13 @@ export default function LoginPage(){
             </div>
 
             <button type="submit" disabled={loading} 
-            className="rounded-lg bg-green-600 px-6 py-3 font-medium text-white hover:bg-green-800">
+            className="submitButton">
                 {loading ? "loading..." : "Log in"}
+            </button>
+
+            <button type="button" onClick={handleSignup} disabled={loading} 
+            className="submitButton">
+                {loading ? "loading..." : "Sign up"}
             </button>
         </form>
       </div>

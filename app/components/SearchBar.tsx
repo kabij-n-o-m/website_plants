@@ -46,24 +46,24 @@ export default function SearchBar() {
         <form onSubmit={handleSearch} className="searchGrid">
             <input
             placeholder="Enter plant name"
-            className="flex-1 rounded-l-lg bg-amber-100 border-amber-900 border-3 px-4 py-3 focus:outline-none "
+            className="flex-1 rounded-l-lg bg-white border-cgreen-500 border-3 px-4 py-3 focus:outline-none "
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             />
 
             <button
             type="submit"
-            className="rounded-r-lg bg-green-600 px-6 py-3 font-medium text-white hover:bg-green-800"
+            className="bg-cgreen-500 hover:bg-cgreen-600 rounded-r-lg text-white "
             >
             Search
             </button>
             
-            <details className="border rounded-lg p-3 w-fit">
-                <summary className="cursor-pointer font-medium select-none">
+            <details className="bg-cpink-300 rounded-lg p-3 w-fit">
+                <summary className="font-medium select-none">
                     Apply filters
                 </summary>
                 <fieldset className="flex gap-1 m-1 mt-2">
-                    <label className="flex items-center gap-2 text-sm bg-pink-200 rounded-lg p-1.5">
+                    <label className="accent-cgreen-500 flex items-center gap-2 text-sm bg-cpink-150 rounded-lg p-1.5">
                         Edible
                         <input
                         type="radio"
@@ -72,7 +72,7 @@ export default function SearchBar() {
                         />
                         
                     </label>
-                    <label className="flex items-center gap-2 text-sm bg-pink-200 rounded-lg p-1.5">
+                    <label className="accent-cgreen-500 flex items-center gap-2 text-sm bg-cpink-150 rounded-lg p-1.5">
                         Non-edible
                         <input
                         type="radio"
@@ -81,7 +81,7 @@ export default function SearchBar() {
                         />
                         
                     </label>
-                    <label className="flex items-center gap-2 text-sm bg-pink-200 rounded-lg p-1.5">
+                    <label className="accent-cgreen-500 flex items-center gap-2 text-sm bg-cpink-150 rounded-lg p-1.5">
                         Any
                         <input
                         type="radio"
@@ -96,7 +96,7 @@ export default function SearchBar() {
                     Native to: 
                     <div className= "grid grid-cols-4 gap-1">
                     
-                    <label className="flex items-center justify-between gap-2 text-sm bg-pink-200 rounded-lg p-1.5 pr-2.5 pl-2.5">
+                    <label className="accent-cgreen-500 flex items-center justify-between gap-2 text-sm bg-cpink-150 rounded-lg p-1.5 pr-2.5 pl-2.5">
                         UK
                         <input
                         type="radio"
@@ -105,7 +105,7 @@ export default function SearchBar() {
                         />
                     </label>
                     
-                    <label className="flex items-center justify-between gap-2 text-sm bg-pink-200 rounded-lg p-1.5 pr-2.5 pl-2.5">
+                    <label className="accent-cgreen-500 flex items-center justify-between gap-2 text-sm bg-cpink-150 rounded-lg p-1.5 pr-2.5 pl-2.5">
                         France
                         <input
                         type="radio"
@@ -114,7 +114,7 @@ export default function SearchBar() {
                         />
                     </label>
                     
-                    <label className="flex items-center justify-between gap-2 text-sm bg-pink-200 rounded-lg p-1.5 pr-2.5 pl-2.5">
+                    <label className="accent-cgreen-500 flex items-center justify-between gap-2 text-sm bg-cpink-150 rounded-lg p-1.5 pr-2.5 pl-2.5">
                         Ireland
                         <input
                         type="radio"
@@ -123,7 +123,7 @@ export default function SearchBar() {
                         />
                     </label>
 
-                    <label className="flex items-center justify-between gap-2 text-sm bg-pink-200 rounded-lg p-1.5 pr-2.5 pl-2.5">
+                    <label className="accent-cgreen-500 flex items-center justify-between gap-2 text-sm bg-cpink-150 rounded-lg p-1.5 pr-2.5 pl-2.5">
                         Spain
                         <input
                         type="radio"
@@ -132,7 +132,7 @@ export default function SearchBar() {
                         />
                     </label>
 
-                    <label className="flex items-center justify-between gap-2 text-sm bg-pink-200 rounded-lg p-1.5 pr-2.5 pl-2.5">
+                    <label className="flex items-center accent-cgreen-500 justify-between gap-2 text-sm bg-cpink-150 rounded-lg p-1.5 pr-2.5 pl-2.5">
                         Germany
                         <input
                         type="radio"
@@ -148,14 +148,12 @@ export default function SearchBar() {
                     <Slider.Root className="relative flex items-center w-48 h-6 ml-2"
                     min={0} max={14} step={1} minStepsBetweenThumbs={0} value={phLv} onValueChange={setphLv}
                     aria-label="Ideal ph level range"> 
-                        <Slider.Track className="relative h-1 flex-1 rounded bg-gray-300">
-                        <Slider.Range className="absolute h-full rounded bg-blue-500" />
+                        <Slider.Track className="relative h-1 flex-1 rounded bg-cgreen-50">
+                        <Slider.Range className="absolute h-full bg-cgreen-500" />
                         </Slider.Track>
-                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-blue-600 
-                        border-2 border-white shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-cgreen-500 border-2 border-cgreen-50"
                         aria-label="Minimum ph level" />
-                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-blue-600 
-                        border-2 border-white shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-cgreen-500 border-2 border-cgreen-50"
                         aria-label="Maximum ph level"/>
                     </Slider.Root>
 
@@ -169,14 +167,12 @@ export default function SearchBar() {
                     <Slider.Root className="relative flex items-center w-48 h-6 ml-2"
                     min={1} max={10} step={1} minStepsBetweenThumbs={0} value={lightLv} onValueChange={setLightLv}
                     aria-label="Ideal light level range"> 
-                        <Slider.Track className="relative h-1 flex-1 rounded bg-gray-300">
-                        <Slider.Range className="absolute h-full rounded bg-blue-500" />
+                        <Slider.Track className="relative h-1 flex-1 rounded bg-cgreen-50">
+                        <Slider.Range className="absolute h-full bg-cgreen-500" />
                         </Slider.Track>
-                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-blue-600 
-                        border-2 border-white shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-cgreen-500 border-2 border-cgreen-50"
                         aria-label="Minimum light level" />
-                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-blue-600 
-                        border-2 border-white shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                        <Slider.Thumb className="block w-4 h-4 rounded-full bg-cgreen-500 border-2 border-cgreen-50"
                         aria-label="Maximum light level"/>
                     </Slider.Root>
                     

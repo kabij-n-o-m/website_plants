@@ -17,10 +17,10 @@
     height: 100%;
     width: 100%;
     object-fit: contain;
-    border-color: lightgreen;
+    border-color: var(--color-cgreen-200);
     border-width: 5px;
     border-radius: 20px;
-    background-color: #d3f8d3;
+    background-color: white;
 
 }
 
