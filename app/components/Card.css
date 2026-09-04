@@ -10,10 +10,7 @@
   align-items: stretch;
 }
 
-.cardtext {
-    flex: 3;
-    font-size: smaller;
-}
+
 
 .cardimg{
     flex:2;

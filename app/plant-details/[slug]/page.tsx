@@ -4,6 +4,7 @@ import Navbar from '@/app/components/Navbar';
 import Image from 'next/image';
 import './DetailsLayout.css'
 import SafeImage from '@/app/components/safeImage';
+import Heart from '../../components/Heart'
 
 const api_key = process.env.TREFLE_API_KEY;
 
@@ -64,7 +65,10 @@ export default async function PlantInfoPage({ params }: PageProps) {
 
       <div className='contentandnav'>
         <div className='content'>
+            <div className='relative flex items-center justify-center'>
+            <Heart type="big" slug={plant.slug}/>            
             <h2>Overview</h2>
+            </div>
             <div className='contentsection'>
             <ul>
               <li>{plant.common_name ? "Common name: " + plant.common_name : "" }</li>
