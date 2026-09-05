@@ -4,12 +4,13 @@ import { useState, useTransition } from 'react';
 import { Lineicons } from '@lineiconshq/react-lineicons';
 import { HeartOutlined, HeartSolid } from '@lineiconshq/free-icons';
 import { addFavourite } from '../actions';
+import { MorePlant } from '../plant-details/[slug]/page';
 
 type heartOptions = "big" | "small"
 
 interface HeartProps{
     type: heartOptions;
-    slug?: string;
+    plant?: MorePlant;
 }
 
 
@@ -20,12 +21,13 @@ function Heart(props : HeartProps) {
     const [liked, setLiked] = useState(false);
 
     function handleClick(){
-        if (props.slug){
+        if (props.plant){
         startTransition(async () => {
-            await addFavourite(props.slug);
+            await addFavourite(props.plant);
         });}
         else{
-            console.log("no slug")
+            console.log("no plant")
+            console.log(props)
         }
         setLiked(!liked);
     }

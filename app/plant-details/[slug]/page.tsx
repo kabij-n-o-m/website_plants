@@ -20,7 +20,7 @@ interface PlantImage{
   copyright: string;
 }
 
-interface MorePlant{
+export interface MorePlant{
   id: string;
   slug: string; 
   common_name: string;
@@ -38,7 +38,6 @@ interface MorePlant{
 
   };
   distribution: {native: string[]; introduced: string[];}
-  images: {flower: PlantImage[] ; fruit: PlantImage[] ; other: PlantImage[] ;}
 
 }
 
@@ -66,7 +65,7 @@ export default async function PlantInfoPage({ params }: PageProps) {
       <div className='contentandnav'>
         <div className='content'>
             <div className='relative flex items-center justify-center'>
-            <Heart type="big" slug={plant.slug}/>            
+            <Heart type="big" plant={plant}/>            
             <h2>Overview</h2>
             </div>
             <div className='contentsection'>
@@ -116,4 +115,3 @@ export default async function PlantInfoPage({ params }: PageProps) {
   )
 }
 
-/*come back to teh stuff about displaying different images of the plant*/
