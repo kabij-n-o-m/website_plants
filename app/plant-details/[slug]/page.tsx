@@ -46,7 +46,26 @@ export default async function PlantInfoPage({ params }: PageProps) {
   console.log({slug});
   const res = await fetch ("https://trefle.io/api/v1/species/"+slug+"?"+api_key);
   const { data } = await res.json();
-  const plant: MorePlant = data;
+  const {
+  id,
+  common_name,
+  scientific_name,
+  image_url,
+  edible,
+  growth,
+  distribution
+} = data;
+  const plant: MorePlant = {
+  id,
+  slug,
+  common_name,
+  scientific_name,
+  image_url,
+  edible,
+  growth,
+  distribution
+};
+
 
   const growthFields = [
     { label: 'Number of days from planting until harvest', value: plant.growth.days_to_harvest },
