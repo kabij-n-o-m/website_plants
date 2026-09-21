@@ -1,2 +1,2 @@
-A fun little website I'm working on. 
+A fun little website I'm working on. <br>
 Its not hosted anywhere yet but it will let you log in to keep track of the plants you're growing in your garden! Things like watering, sewing seeds, harvesting fruits etc... 
